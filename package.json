@@ -1,0 +1,22 @@
+{
+  "name": "cypress_e2e_automation",
+  "version": "1.0.0",
+  "description": "cypress e2e automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cypress",
+    "e2e",
+    "automation"
+  ],
+  "author": "raaj",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^10.10.0"
+  },
+  "devDependencies": {
+    "@cypress/xpath": "^2.0.3"
+  }
+}

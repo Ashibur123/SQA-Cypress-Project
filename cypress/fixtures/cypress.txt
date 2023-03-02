@@ -1,0 +1,45 @@
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here prevents Cypress from
+    // failing the test
+    return false
+  })
+describe('Assessment project', () => {
+  
+
+    it('Verify date selection', () => {
+      cy.visit('https://www.qa.paydaytest.gainhq.com/hrm/dashboard');
+      // Login Here
+      cy.get("input[placeholder=\"Enter your email\"]").type('sqa@gain.media');
+      cy.get("input[placeholder=\"Enter your password\"]").type('candidate@QA00');
+      cy.get('.btn > .w-100').click();
+      // Punch In here
+      cy.get('.float-md-right > :nth-child(1) > .d-flex > .btn').click();
+      cy.get('.text-center > .w-100').click();
+      // Punch Out here
+      cy.reload()
+      cy.get('.float-md-right > :nth-child(1) > .d-flex > .btn').click();
+      cy.get('.text-center > .w-100').click();
+      // See Employess
+      cy.reload()
+      cy.get('[href="#employee"] > .menu-arrow').click();
+      cy.get('#employee > .nav > :nth-child(1) > .nav-link').click();
+      // Employee Details
+      cy.get(':nth-child(1) > .card > .card-body > .mt-4 > .btn').click();
+      cy.scrollTo(0, 500);
+      // Add Employee
+      cy.get('[href="#employee"] > .menu-arrow').click();
+      cy.get('#employee > .nav > :nth-child(1) > .nav-link').click();
+      cy.get('.btn-success').click();
+      cy.wait(5000);
+      cy.get("input[placeholder=\"Enter first name \"]").click().type('Mr.');
+      cy.get("input[placeholder=\"Enter last name \"]").click().type('Prince');
+      cy.get("input[placeholder=\"Enter email \"]").click().type('abc@gmail.com');
+      cy.get(':nth-child(1) > .outside').click(); 
+      // Facing Issue here
+      //cy.get('"#employee > ul > li:nth-child(1) > a"').click({ force: true });
+      //cy.get('#formData.designation_id').contains('Director').click({ force: true });
+      ///cy.get('#formData.employment_status_id').contains('DPermanent').click({ force: true });
+      //cy.get('.text-center > .w-100').click(); .contains('Main Department')
+    })
+      }) 
